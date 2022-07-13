@@ -181,7 +181,7 @@ class AD54X0:
         result = list(self.read_register(STATUS_REG))[0]
         return result
     
-    def _default_fault_handler(self):
+    def _default_fault_handler(self, p):
         status_register = self.get_status()
         print(f"AD54X0 fault detected! status register: {status_register:02X}")
         if self.fault_handler:
