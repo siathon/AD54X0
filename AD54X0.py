@@ -62,9 +62,9 @@ class AD54X0:
         self._latch.init(mode=Pin.OUT, value=0)
         self._clear.init(mode=Pin.OUT, value=0)
         self._fault.init(mode=Pin.IN, pull=Pin.PULL_UP)
-        self._fault.irq(handler=self._default_fault_handler, trigger=Pin.IRQ_FALLING)
         
     def set_fault_handler(self, handler):
+        self._fault.irq(handler=self._default_fault_handler, trigger=Pin.IRQ_FALLING)
         self.fault_handler = handler
         
     def latch(self):
